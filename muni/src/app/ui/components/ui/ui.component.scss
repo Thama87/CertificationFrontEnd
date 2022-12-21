@@ -1,0 +1,24 @@
+.ui {
+  height: 100vh;
+}
+
+.content {
+  background: var(--app-light);
+}
+
+header {
+  background: var(--app-header);
+}
+
+aside {
+  background: var(--app-nav);
+}
+
+nav {
+  width: 150px;
+  transition: 500ms;
+}
+
+.close-aside {
+  width: 0px;
+}

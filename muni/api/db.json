@@ -1,0 +1,66 @@
+{
+  "users": [
+      {
+          "id": 1,
+          "name": "Xabier Heguy"
+      },
+      {
+          "id": 2,
+          "name": "Thomas Da Silva"
+      }
+  ],
+  "channels": [
+    {
+        "id": 1,
+        "name": "general"
+    },
+    {
+        "id": 2,
+        "name": "trucs"
+    }
+  ],
+  "messages": [
+      {
+          "id": 1,
+          "content": "bonjour",
+          "postTime": "2022-12-01T12:00:00",
+          "editTime": null,
+          "user": {
+              "id": 1,
+              "name": "Xabier Heguy"
+          },
+          "channel": {
+              "id": 1,
+              "name": "general"
+          }
+      },
+      {
+          "id": 2,
+          "content": "coucou",
+          "postTime": "2022-12-01T12:03:00",
+          "editTime": null,
+          "user": {
+            "id": 2,
+            "name": "Thomas Da Silva"
+        },
+          "channel": {
+              "id": 1,
+              "name": "general"
+          }
+      },
+      {
+          "id": 3,
+          "content": "l'autre channel",
+          "postTime": "2022-12-03T18:00:00",
+          "editTime": "2022-12-03T18:30:00",
+          "user": {
+            "id": 2,
+            "name": "Thomas Da Silva"
+        },
+          "channel": {
+              "id": 1,
+              "name": "general"
+          }
+      }
+  ]
+}
