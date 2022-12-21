@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Channel } from '../../models/channel';
+import { ChannelsService } from '../../services/channels.service';
 
 @Component({
   selector: 'app-nav',
@@ -6,11 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-  /*public channels!: Channel[];
+  public channels!: Channel[];
   constructor(private channelsService: ChannelsService) {
     this.channelsService.collection.subscribe((data) => {
       console.log(data);
       this.channels=data;
     });
-  }*/
+  }
 }

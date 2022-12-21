@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Channel } from 'src/app/core/models/channel';
+import { ChannelsService } from 'src/app/core/services/channels.service';
 
 @Component({
   selector: 'app-page-list-channels',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-list-channels.component.scss']
 })
 export class PageListChannelsComponent {
-
+  public channels!: Channel[];
+  constructor(private channelsService: ChannelsService) {
+    this.channelsService.collection.subscribe((data) => {
+      console.log(data);
+      this.channels=data;
+    });
+  }
 }

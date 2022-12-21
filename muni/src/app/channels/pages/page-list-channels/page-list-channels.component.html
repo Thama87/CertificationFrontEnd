@@ -1,1 +1,3 @@
-<p>page-list-channels works!</p>
+<ul>
+  <li *ngFor="let item of :channels" class="nav-link" routerLink="messages" routerLinkActive="active"> {{item.name}} </li>
+</ul>

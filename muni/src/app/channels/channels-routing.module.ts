@@ -5,9 +5,9 @@ import { PageEditChannelComponent } from './pages/page-edit-channel/page-edit-ch
 import { PageListChannelsComponent } from './pages/page-list-channels/page-list-channels.component';
 
 const routes: Routes = [
-  { path: '', component: PageListChannelsComponent },
-  { path: 'add', component: PageAddChannelComponent },
-  { path: 'edit', component: PageEditChannelComponent }
+  { path: 'channels/list', component: PageListChannelsComponent },
+  { path: 'channels/add', component: PageAddChannelComponent },
+  { path: 'channels/edit', component: PageEditChannelComponent }
 ];
 
 @NgModule({

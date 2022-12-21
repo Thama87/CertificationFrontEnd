@@ -1,3 +1,12 @@
+ul {
+  padding: 0px;
+  list-style-type: none;
+}
+
+li {
+  padding: 15px;
+}
+
 .nav-link {
   color: black;
 }
@@ -5,4 +14,8 @@
 .nav-link:hover {
 color: white;
 background-color: var(--app-dark);
+}
+
+.active{
+  background: var(--app-light);
 }

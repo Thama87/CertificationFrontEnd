@@ -1,4 +1,4 @@
 <ul>
-  <!--li *ngFor="let item of :channels" class="nav-link" routerLink="messages" routerLinkActive="active"> {{item.name}} </li-->
-  <li>bonjour</li>
+  <li class="nav-link" routerLink="channels/list" routerLinkActive="active">Liste des channels</li>
+  <li *ngFor="let item of :channels" class="nav-link" routerLink="messages/{{item.id}}" routerLinkActive="active"> {{item.name}} </li>
 </ul>
