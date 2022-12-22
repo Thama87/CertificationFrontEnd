@@ -20,7 +20,7 @@ export class MessagesService {
     this.collection$ = new BehaviorSubject<Message[]>([]);
     this.channelMess$ = new BehaviorSubject<Message[]>([]);
 
-    this.getByChannel(1);
+    this.getByChannel(2);
   }
   /*
   public refreshMessage(): void {
@@ -36,7 +36,7 @@ export class MessagesService {
       .get<Message[]>(`${this.urlApi}/messages/channel/${IdChannel}`)
       .subscribe((data) => {
         this.channelMess$.next(data);
-        console.log(data);
+        console.log(IdChannel);
       });
   }
 

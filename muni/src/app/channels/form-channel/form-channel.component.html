@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="content">{{ intitule }}</label>
+    <input type="text" class="form-control" id="name" formControlName="name">
+    <div class="alert alert-danger" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">
+      Vous n'avez pas saisi de nom.
+    </div>
+  </div>
+
+  <app-btn [disabled]="form.invalid" label="Ajouter" type="submit"></app-btn>
+</form>
