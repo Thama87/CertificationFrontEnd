@@ -12,6 +12,12 @@ export class ChannelsService {
 
   constructor(private httpClient: HttpClient) {
     this.urlApi = environment.urlApi;
-    this.collection$ = this.httpClient.get<Channel[]>(`${this.urlApi}/channels`);
+    this.collection$ = this.httpClient.get<Channel[]>(
+      `${this.urlApi}/channels`
+    );
+  }
+
+  public getChanById(id: number) {
+    return this.httpClient.get<Channel>(`${this.urlApi}/channels/${id}`);
   }
 }

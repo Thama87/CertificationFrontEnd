@@ -4,8 +4,8 @@ import { User } from "./user";
 export class Message {
     id!: number;
     content!: string;
-    postTime!: string;
-    editTime = null;
+    postTime!: Date;
+    editTime!: Date;
     //user!: User;
     //channel!: Channel;
     user = new User();

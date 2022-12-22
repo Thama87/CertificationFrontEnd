@@ -33,49 +33,11 @@ export class FormMessagesComponent {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       content: [this.init.content, Validators.required],
-      id: [this.init.id],
-      postTime: [this.init.postTime],
-      editTime: [this.init.editTime],
-      user: this.formBuilder.group({
-        id: [this.init.user.id],
-      }),
-      channel: this.formBuilder.group({
-        id: [this.init.channel.id],
-      }),
-    });
-    console.log(this.init.content);
-    console.log(this.init.user);
-  }
-
-  addFormGroup(): void {
-    this.form = this.formBuilder.group({
-      content: [this.init.content, Validators.required],
-      id: [this.init.id],
-      postTime: Date.now(),
-      user: this.formBuilder.group({
-        id: [this.init.user.id],
-      }),
-      channel: this.formBuilder.group({
-        id: [this.init.channel.id],
-      }),
-    });
-  }
-
-  putFormGroup(): void {
-    this.form = this.formBuilder.group({
-      content: [this.init.content, Validators.required],
-      id: [this.init.id],
-      editTime: Date.now(),
-      user: this.formBuilder.group({
-        id: [this.init.user.id],
-      }),
-      channel: this.formBuilder.group({
-        id: [this.init.channel.id],
-      }),
     });
   }
 
   public onSubmit(): void {
+    console.log(this.form.value);
     this.submitted.emit(this.form.value);
   }
 }
