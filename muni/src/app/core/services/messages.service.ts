@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from 'src/environment/environment';
 import { Message } from '../models/message';
 
@@ -9,18 +9,29 @@ import { Message } from '../models/message';
 })
 export class MessagesService {
   private urlApi: string;
-  public collection$: Observable<Message[]>;
+  public collection$!: BehaviorSubject<Message[]>;
+
 
   constructor(private httpClient: HttpClient) {
     this.urlApi = environment.urlApi;
-    this.collection$ = this.httpClient.get<Message[]>(
-      `${this.urlApi}/messages`
-    );
+    this.collection$ = new BehaviorSubject<Message[]>([]);
 
-    console.log(this.collection$);
+    this.refreshMessage();
+  }
+
+  public refreshMessage(): void {
+    this.httpClient.get<Message[]>(
+      `${this.urlApi}/messages`
+    ).subscribe((data)=> {
+      this.collection$.next(data);
+    })
   }
 
   public add(message: Message): Observable<Message> {
-    return this.httpClient.post<Message>(`${this.urlApi}/messages`, message);
+    return this.httpClient.post<Message>(`${this.urlApi}/messages`, message).pipe(
+      tap(()=>{
+        this.refreshMessage();
+      } )
+    )
   }
 }

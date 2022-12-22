@@ -29,6 +29,6 @@ export class FormMessagesComponent {
 
   public onSubmit(): void {
     this.submitted.emit(this.form.value);
-    console.log(this.form.value);
+    
   }
 }

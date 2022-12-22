@@ -10,17 +10,15 @@ import { MessagesService } from 'src/app/core/services/messages.service';
   styleUrls: ['./page-list-messages.component.scss'],
 })
 export class PageListMessagesComponent {
-  public collection$!: Observable<Message[]>;
+  public collection$!: BehaviorSubject<Message[]>;
   public message: Message;
-  public collectionBehav$!: BehaviorSubject<Message[]>;
-  //public headers: string[];
+
   constructor(
     private messagesService: MessagesService,
     private router: Router
   ) {
     this.message = new Message();
     this.collection$ = this.messagesService.collection$;
-    this.collection$.subscribe((data)=> this.collectionBehav$ = new BehaviorSubject(data));
   }
 
   public action(message: Message): void {
@@ -30,8 +28,4 @@ export class PageListMessagesComponent {
     console.log(this.message);
   }
 
-  public refreshMessages(): void {
-    //this.collectionBehav$.next(data);
-
-  }
 }
