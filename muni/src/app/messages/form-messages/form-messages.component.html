@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="content">Saisir le message</label>
+    <input type="textarea" class="form-control" id="content" formControlName="content">
+    <div class="alert alert-danger"
+      *ngIf="form.controls['content'].invalid && form.controls['content'].touched">
+      Vous n'avez pas saisi de message.
+    </div>
+  </div>
+
+  <app-btn [disabled]="form.invalid"  label="Ajouter" type="submit"></app-btn>
+</form>

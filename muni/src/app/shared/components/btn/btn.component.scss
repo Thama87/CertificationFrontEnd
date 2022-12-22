@@ -1,0 +1,8 @@
+button {
+  background-color: var(--app-nav);
+  border: var(--app-primary);
+}
+
+button:hover {
+  background-color: var(--app-primary-dark);
+}

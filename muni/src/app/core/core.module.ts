@@ -8,6 +8,7 @@ import { ChannelsModule } from '../channels/channels.module';
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BtnComponent } from '../shared/components/btn/btn.component';
 
 
 
@@ -25,7 +26,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ChannelsModule,
     HeaderComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
   ]
 })
 export class CoreModule { }

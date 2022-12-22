@@ -6,6 +6,8 @@ export class Message {
     content!: string;
     postTime!: string;
     editTime = null;
-    user!: User;
-    channel!: Channel;
+    // user!: User;
+    // channel!: Channel;
+    user = new User();
+    channel = new Channel();
 }

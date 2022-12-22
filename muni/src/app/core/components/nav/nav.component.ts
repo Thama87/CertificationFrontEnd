@@ -11,7 +11,7 @@ export class NavComponent {
   public channels!: Channel[];
   constructor(private channelsService: ChannelsService) {
     this.channelsService.collection.subscribe((data) => {
-      console.log(data);
+      /*console.log(data);*/
       this.channels=data;
     });
   }

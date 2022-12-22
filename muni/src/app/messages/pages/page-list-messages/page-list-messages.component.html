@@ -1,1 +1,10 @@
-<p>page-list-messages works!</p>
+<div *ngFor="let message of collection$ |async as collection" class="card border-dark mb-3 mess" style="max-width: 80rem;">
+  <div class="card-header d-flex">Posté le : {{ message.postTime | date: 'dd/MM/yy à HH:mm' }}
+    <br>Edité le : {{ message.editTime | date: 'dd/MM/yy à HH:mm' }}
+  </div>
+  <div class="card-body text-dark">
+    <p class="card-text">{{ message.content }}</p>
+    <app-btn class="edit-btn" route="edit/{{ message.id }}" label="Edit"></app-btn>
+  </div>
+</div>
+<app-form-messages [init]="message" (submitted)="action($event)"></app-form-messages>
