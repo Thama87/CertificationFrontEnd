@@ -8,12 +8,10 @@ import { Channel } from '../models/channel';
 })
 export class ChannelsService {
   private urlApi: string;
-  public collection: Observable<Channel[]>;
+  public collection$: Observable<Channel[]>;
 
   constructor(private httpClient: HttpClient) {
     this.urlApi = environment.urlApi;
-    this.collection = this.httpClient.get<Channel[]>(`${this.urlApi}/channels`);
-
-    console.log(this.collection);
+    this.collection$ = this.httpClient.get<Channel[]>(`${this.urlApi}/channels`);
   }
 }

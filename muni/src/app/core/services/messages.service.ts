@@ -34,4 +34,13 @@ export class MessagesService {
       } )
     )
   }
+
+  public put(message: Message): Observable<Message> {
+    return this.httpClient.put<Message>(`${this.urlApi}/messages/5`, message).pipe(
+      tap(()=>{
+        this.refreshMessage();
+      } )
+    )
+    console.log(message);
+  }
 }

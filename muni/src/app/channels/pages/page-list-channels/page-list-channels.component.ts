@@ -10,7 +10,7 @@ import { ChannelsService } from 'src/app/core/services/channels.service';
 export class PageListChannelsComponent {
   public channels!: Channel[];
   constructor(private channelsService: ChannelsService) {
-    this.channelsService.collection.subscribe((data) => {
+    this.channelsService.collection$.subscribe((data) => {
       console.log(data);
       this.channels=data;
     });

@@ -7,7 +7,7 @@ import { PageListMessagesComponent } from './pages/page-list-messages/page-list-
 const routes: Routes = [
   { path: '', component: PageListMessagesComponent },
   { path: 'add', component: PageAddMessageComponent },
-  { path: 'edit', component: PageEditMessageComponent }
+  { path: 'edit/:id', component: PageEditMessageComponent }
 ];
 
 @NgModule({

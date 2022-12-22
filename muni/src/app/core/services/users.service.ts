@@ -9,12 +9,10 @@ import { User } from '../models/user';
 })
 export class UsersService {
   private urlApi: string;
-  public collection: Observable<User[]>;
+  public collection$: Observable<User[]>;
 
   constructor(private httpClient: HttpClient) {
     this.urlApi = environment.urlApi;
-    this.collection = this.httpClient.get<User[]>(`${this.urlApi}/users`);
-
-    console.log(this.collection);
+    this.collection$ = this.httpClient.get<User[]>(`${this.urlApi}/users`);
   }
 }

@@ -1,9 +1,8 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="content">Saisir le message</label>
+    <label for="content">{{ intitule }}</label>
     <input type="textarea" class="form-control" id="content" formControlName="content">
-    <div class="alert alert-danger"
-      *ngIf="form.controls['content'].invalid && form.controls['content'].touched">
+    <div class="alert alert-danger" *ngIf="form.controls['content'].invalid && form.controls['content'].touched">
       Vous n'avez pas saisi de message.
     </div>
   </div>

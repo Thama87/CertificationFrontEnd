@@ -25,7 +25,6 @@ export class PageListMessagesComponent {
     this.messagesService.add(message).subscribe(() => {
       this.router.navigate(['messages']);
     });
-    console.log(this.message);
   }
 
 }
