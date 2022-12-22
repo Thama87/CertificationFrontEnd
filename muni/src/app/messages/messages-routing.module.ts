@@ -5,7 +5,7 @@ import { PageEditMessageComponent } from './pages/page-edit-message/page-edit-me
 import { PageListMessagesComponent } from './pages/page-list-messages/page-list-messages.component';
 
 const routes: Routes = [
-  { path: '', component: PageListMessagesComponent },
+  { path: 'channel/:id', component: PageListMessagesComponent },
   { path: 'add', component: PageAddMessageComponent },
   { path: 'edit/:id', component: PageEditMessageComponent }
 ];

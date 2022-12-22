@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Message } from 'src/app/core/models/message';
 import { MessagesService } from 'src/app/core/services/messages.service';
@@ -11,12 +11,18 @@ import { MessagesService } from 'src/app/core/services/messages.service';
 })
 export class PageListMessagesComponent {
   public collection$!: BehaviorSubject<Message[]>;
+  public collection2$!: Observable<Message[]>;
   public message: Message;
+  public IdChannel: number;
 
   constructor(
     private messagesService: MessagesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
+    this.IdChannel = this.route.snapshot.params['id'];
+    this.collection2$ = this.messagesService.getByChannel(this.IdChannel);
+    console.log(this.IdChannel);
     this.message = new Message();
     this.collection$ = this.messagesService.collection$;
   }

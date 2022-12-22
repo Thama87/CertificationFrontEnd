@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from 'src/environment/environment';
 import { Message } from '../models/message';
@@ -10,9 +11,11 @@ import { Message } from '../models/message';
 export class MessagesService {
   private urlApi: string;
   public collection$!: BehaviorSubject<Message[]>;
+  private channelId: number;
 
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, route: ActivatedRoute) {
+    this.channelId = route.snapshot.params['id'];
     this.urlApi = environment.urlApi;
     this.collection$ = new BehaviorSubject<Message[]>([]);
 
@@ -25,6 +28,11 @@ export class MessagesService {
     ).subscribe((data)=> {
       this.collection$.next(data);
     })
+  }
+
+  public getByChannel(IdChannel: number) {
+    this.channelId=IdChannel;
+    return this.httpClient.get<Message[]>(`${this.urlApi}/messages/channel/${this.channelId}`);
   }
 
   public add(message: Message): Observable<Message> {
